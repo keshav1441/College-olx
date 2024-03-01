@@ -1,0 +1,33 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% block body %}
+    <div class="container">
+        <div class="form-box">
+            <h1>Sign In</h1>
+            <form action="{% url 'login' %}" method="post"> <!-- Ensure this points to your login URL -->
+                {% csrf_token %}
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" name="username" placeholder="Username"> <!-- Add 'name' attribute -->
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="password" placeholder="Password"> <!-- Change type to 'password' and add 'name' attribute -->
+                    </div>
+                </div>
+                <a href="{% url 'register' %}">Don't have an account</a> <!-- Update this with the correct URL for your registration page -->
+                <br>
+                <button type="submit">Submit</button> <!-- Add 'type' attribute -->
+            </form>
+            {% for message in messages %}
+            <div>
+                <strong>{{ message }}</strong>
+            </div>
+            {% endfor %}
+        </div>
+    </div>  
+{% endblock %}
+

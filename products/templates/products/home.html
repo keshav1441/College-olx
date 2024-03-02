@@ -1,4 +1,61 @@
-{% extends "products/layout.html" %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classifieds Website Header</title>
+<link href="{% static 'products/css/home.css' %}" rel="stylesheet">
+{% block extrahead %}
+{% endblock %}
+</head>
+<body>
+  
+<div class="header">
+  <div class="lgo">
+    <img src="{% static 'products/images/IMG-4.png'%}" alt="">
+  </div>
+  <div class="search-container">
+    
+    <div class="logo">College</div>
+    <div class="sublogo">OLX</div>
+    <div class="search-box">
+      
+      <input type="search" placeholder="Find Cars, Mobile Phones and more...">
+    </div>
+    <div class="profile" onclick="toggleDropdown()">
+      <img src="{% static 'products/images/2.png'%}" alt="Profile" width="30" height="30">
+      <div id="dropdownMenu" class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="{% url 'users:index' %}">Logout</a>
+      </div>
+    </div>
+    <a href="{% url 'products:sell' %}"><button class="sell-button">+ SELL</button></a>
+  </div>
+</div>
+<div class="nav">
+  <a href="{% url 'products:index' %}">Home</a>
+  <a href="{% url 'products:about' %}">About</a>
+  {% for category in categories %}
+      <a href="{% url 'products:category_detail' category.slug %}">{{ category.category_name }}</a>
+  {% endfor %}
+</div>
+
 {% block body %}
 
 {% endblock %}
+<script>
+function toggleDropdown() {
+  var dropdown = document.getElementById("dropdownMenu");
+  if (dropdown.style.display === "none") {
+    dropdown.style.display = "block";
+  } else {
+    dropdown.style.display = "none";
+  }
+}
+</script>
+
+    
+</body>
+</html>

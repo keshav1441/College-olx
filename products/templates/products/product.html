@@ -1,0 +1,26 @@
+{% extends "products/home.html" %}
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'products/css/home.css' %}" rel="stylesheet">
+<link href="{% static 'products/css/product.css' %}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="product-list">
+    {% for product in products %}
+    <a href="{% url 'products:product_detail' product.slug %}" class="product-card-link">
+    <div class="product-card">
+        <div class="ingc">
+        {% if product.product_images.first %}
+        <img src="{{ product.product_images.first.image.url }}" alt="{{ product.product_name }}">
+        {% endif %}
+    </div>
+        <div class="product-details">
+            <h5>{{ product.product_name }}</h5>
+            <p>{{ product.product_description|truncatewords:20 }}</p>
+            <div class="product-price">₹{{ product.price }}</div>
+        </div>
+    </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -10,9 +10,9 @@ from .models import UserProfile
 
 
 def index(request):
-    if not request.user.is_authenticated:  
-        return HttpResponseRedirect(reverse("login"))
-    return render(request, "your_template_name.html")
+    return HttpResponseRedirect(reverse('users:login'))
+
+
     
 def login_view(request):
     if request.method == "POST":

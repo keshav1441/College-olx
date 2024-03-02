@@ -12,7 +12,7 @@
     <div class="container">
         <div class="form-box">
             <h1>Register Now</h1>
-            <form action="{% url 'register' %}" method="post"> <!-- Adjusted to use Django URL routing -->
+            <form action="{% url 'users:register' %}" method="post"> <!-- Adjusted to use Django URL routing -->
                 {% csrf_token %}
                 <div class="input-group">
                     <div class="input-field">

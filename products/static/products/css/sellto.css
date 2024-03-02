@@ -1,0 +1,128 @@
+body {
+    background: linear-gradient(rgba(42, 43, 43, 0.5), rgba(104, 101, 103, 0.5)), url('../images/pexels-pixabay-531880.jpg'); /* Specify the URL of the image */
+    
+    background-position: center;
+    background-size: cover;
+    position: relative;font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-size: 22px;
+    color: white    ;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+form {
+    background-color: white;
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    margin: 10px 0 5px;
+    display: block;
+    color: #333;
+}
+
+input[type='text'],
+input[type='number'],
+select,
+textarea {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #57184d;
+    border-radius: 0.5rem;
+    background-color: rgb(223, 223, 223);
+}
+
+
+input[type='file'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 130%;
+    margin-bottom: 40px;
+    border: 2px solid rgb(237, 236, 236);
+    border-radius: 1rem;
+}
+
+input[type='submit'] {
+    width: 100%;
+    padding: 10px;
+    background-color:#57184d;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type='submit']:hover {
+    color: green;
+    background-color: white;
+    border: 2px solid #71206f;
+}
+
+.container {
+    margin-top: 10px;
+    outline: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.container i {
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.photo-box {
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    color: #ccc;
+    position: relative;
+    cursor: pointer;
+}
+
+.photo-box input[type='file'] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.photo-box:hover {
+    border-color: #aaa;
+}
+
+.add-photo {
+    font-weight: bold;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+

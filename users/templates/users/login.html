@@ -4,7 +4,7 @@
     <div class="container">
         <div class="form-box">
             <h1>Sign In</h1>
-            <form action="{% url 'login' %}" method="post"> <!-- Ensure this points to your login URL -->
+            <form action="{% url 'users:login' %}" method="post">
                 {% csrf_token %}
                 <div class="input-group">
                     <div class="input-field">
@@ -18,7 +18,7 @@
                         <input type="password" name="password" placeholder="Password"> <!-- Change type to 'password' and add 'name' attribute -->
                     </div>
                 </div>
-                <a href="{% url 'register' %}">Don't have an account</a> <!-- Update this with the correct URL for your registration page -->
+                <a href="{% url 'users:register' %}">Don't have an account</a> <!-- Update this with the correct URL for your registration page -->
                 <br>
                 <button type="submit">Submit</button> <!-- Add 'type' attribute -->
             </form>

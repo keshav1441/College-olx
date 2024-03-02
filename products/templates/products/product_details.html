@@ -1,0 +1,60 @@
+{% extends "products/home.html" %}  <!-- Adjust to your base template -->
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'products/css/home.css' %}" rel="stylesheet">
+<link href="{% static 'products/css/product_detail.css' %}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<main>
+    <div class="card">
+      <div class="card__title">
+        <div class="icon">
+        </div>
+        <h3>{{ product.product_name }}</h3>
+      </div>
+      <div class="card__body">
+        <div class="half">
+          <div class="featured_text">
+            <p class="sub">{{ product.category }}</p> <!-- Assuming there's a category -->
+            <p class="price">₹{{ product.price }}</p>
+          </div>
+          <div class="image">
+            {% if product.product_images.first %}
+              <img src="{{ product.product_images.first.image.url }}" alt="{{ product.product_name }}">
+            {% endif %}
+          </div>
+        </div>
+        <div class="half">
+          <div class="description">
+            <p>{{ product.product_description }}</p>
+          </div>
+          <!-- The stock and reviews would need to be dynamic if you have that information -->
+          <span class="stock"><i class="fa fa-pen"></i></span> <!-- Static example -->
+          <div class="reviews">
+            <!-- Example static star ratings -->
+            <ul class="stars">
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star-o"></i></li>
+            </ul>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="recommend">
+          <!-- Assuming 'recommended_by' is a context variable -->
+          <p>Recommended by</p>
+          <h3>{{ recommended_by }}</h3>
+        </div>
+        <div class="action">
+          <!-- Add your logic for the 'Add to cart' action -->
+          <button type="button" class="btn-purchase">Purchase</button>
+          <button type="button" class="btn-add-to-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
